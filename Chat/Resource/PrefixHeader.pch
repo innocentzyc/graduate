@@ -1,0 +1,70 @@
+//
+//  PrefixHeader.pch
+//  Chat
+//
+//  Created by 天真 on 2018/7/9.
+//  Copyright © 2018年 zyc. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+/*
+ 第三方库
+ */
+#import "ReactiveCocoa.h"         //RAC
+#import "NerdyUI.h"               //布局等
+#import "SDAutolayout.h"
+#import "IQKeyboardManager.h"     //键盘
+#import "MJExtension.h"           //转换model
+#import "UIImageView+WebCache.h"  //sdwebImage
+#import "CCNetManager.h"          //网络请求
+#import "MJRefresh.h"             //tableView刷新
+
+
+/**
+ * categray
+ */
+#import "UIButton+Action.h"
+
+/**
+ * tools
+ */
+#import "CCObject.h"
+
+/****
+ 常用
+ ****/
+
+/** weak strong */
+#define WeakObj(o) autoreleasepool{} __weak typeof(o) o##Weak = o;
+#define StrongObj(o) autoreleasepool{} __strong typeof(o) o = o##Weak;
+/** 网络管理 */
+#define CCNet [CCNetManager defaultManager]
+/** 通知中心 */
+#define CCNotificationCenter [NSNotificationCenter defaultCenter]
+/** 随机色 */
+#define CCRandomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1.0]
+/** RGB颜色 */
+#define CCRGBAColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(r)/255.0 blue:(r)/255.0 alpha:a]
+/** 主题颜色 */
+#define MainColor [UIColor colorWithRed:1.00 green:0.04 blue:0.32 alpha:1.00]
+
+
+
+/**
+ * 长度
+ */
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000 // 当前Xcode支持iOS8及以上
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.width)
+#define SCREENH_HEIGHT ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale:[UIScreen mainScreen].bounds.size.height)
+#define SCREEN_SIZE ([[UIScreen mainScreen] respondsToSelector:@selector(nativeBounds)]?CGSizeMake([UIScreen mainScreen].nativeBounds.size.width/[UIScreen mainScreen].nativeScale,[UIScreen mainScreen].nativeBounds.size.height/[UIScreen mainScreen].nativeScale):[UIScreen mainScreen].bounds.size)
+#else
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREENH_HEIGHT [UIScreen mainScreen].bounds.size.height
+#define SCREEN_SIZE [UIScreen mainScreen].bounds.size
+#endif
+
+
+#endif /* PrefixHeader_pch */
