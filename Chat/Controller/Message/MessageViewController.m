@@ -17,17 +17,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self setDisplayConversationTypes:@[@(ConversationType_PRIVATE)]];
+    
     self.conversationListTableView.separatorStyle = NO;
 }
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
          conversationModel:(RCConversationModel *)model
                atIndexPath:(NSIndexPath *)indexPath {
+    
     RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
+    
     conversationVC.conversationType = model.conversationType;
+    
     conversationVC.targetId = model.targetId;
+    
     conversationVC.title = model.conversationTitle;
+    
     [self.navigationController pushViewController:conversationVC animated:YES];
 }
 -(RCConversationBaseCell *)rcConversationListTableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

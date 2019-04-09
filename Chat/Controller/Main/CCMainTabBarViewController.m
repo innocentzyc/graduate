@@ -55,19 +55,19 @@
     
     // 设置tabbar主题色
     [UITabBar appearance].tintColor = MainColor;
+   
     [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
 
-    
-    
     // 设置文字颜色
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorWithRed:1.00 green:0.04 blue:0.32 alpha:1.00] , NSForegroundColorAttributeName, nil] forState:UIControlStateSelected];
+   
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor lightGrayColor], NSForegroundColorAttributeName, nil] forState:UIControlStateNormal];
 
     
     // 创建子视图
     [self configViewControllers];
     
-    self.selectedIndex = 1;
+    self.selectedIndex = 0;
     
     
     
@@ -76,9 +76,11 @@
 - (void)configViewControllers{
     
     
-    NSArray *vcNames = @[@"ContactsViewController", @"MessageViewController", @"PersonViewController"];
-    NSArray *titles = @[@"联系人", @"消息", @"我"];
-    NSArray<NSString *> *images = @[@"contact", @"message" ,@"me"];
+    NSArray *vcNames = @[@"MessageViewController", @"ContactsViewController", @"PersonViewController"];
+   
+    NSArray *titles = @[@"消息", @"联系人", @"我"];
+    
+    NSArray<NSString *> *images = @[@"message", @"contact" ,@"me"];
     
     NSMutableArray *vcs = [@[] mutableCopy];
     

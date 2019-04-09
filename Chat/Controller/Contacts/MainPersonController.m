@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"个人信息";
+    self.title = @"详情";
 }
 -(void)configUI
 {
@@ -66,7 +66,7 @@
     
     VerStack(_phoneLabel,line,_remarkLabel).embedIn(back1,5,10,5,10);
     
-    UIButton *chat = UIButton.new.bgColor([UIColor colorWithRed:1.00 green:0.04 blue:0.32 alpha:1.00]).str(@"发消息").color(@"white").fnt(18).xywh(25,SCREENH_HEIGHT-200, SCREEN_WIDTH-50,40).borderRadius(10).onClick(^{
+    UIButton *chat = UIButton.new.bgColor([UIColor colorWithRed:1.00 green:0.04 blue:0.32 alpha:1.00]).str(self.buttonTitle).color(@"white").fnt(18).xywh(25,SCREENH_HEIGHT-200, SCREEN_WIDTH-50,40).borderRadius(10).onClick(^{
         RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
         conversationVC.conversationType = ConversationType_PRIVATE;
         conversationVC.targetId = @"bad";

@@ -19,7 +19,9 @@
 #import "MJExtension.h"           //转换model
 #import "UIImageView+WebCache.h"  //sdwebImage
 #import "CCNetManager.h"          //网络请求
+#import "AFNetworking.h"
 #import "MJRefresh.h"             //tableView刷新
+#import <RongIMLib/RongIMLib.h>   //融云
 
 
 /**

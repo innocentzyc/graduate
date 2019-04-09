@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) ContactModel *model;
 
+@property (nonatomic, strong) NSString *buttonTitle;
+
 @end

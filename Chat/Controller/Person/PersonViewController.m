@@ -39,19 +39,28 @@
 -(void)configUI
 {
     [super configUI];
+  
     self.tableView = [[UITableView alloc]initWithFrame:self.view.frame style:UITableViewStylePlain];
+    
     self.tableView.delegate = self;
+    
     self.tableView.dataSource = self;
+    
     self.tableView.tableFooterView = [UIView new];
+    
     [self.view addSubview:self.tableView];
+    
     [self getData];
 }
 //网络请求
 - (void)getData
 {
-    self.model.name = @"程浩宇";
-    self.model.sign = @"聊天就找程浩宇，程浩宇最帅";
-    self.model.iconUrl = @"http://b-ssl.duitang.com/uploads/item/201511/06/20151106181553_ZTFNW.jpeg";
+    self.model.name = @"王可爱";
+    
+    self.model.sign = @"你知道全世界得人都是在忙着死吗？";
+    
+    self.model.iconUrl = @"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1536664051777&di=f2b41d170d3b29b884f97b8c697aa5f8&imgtype=0&src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201608%2F12%2F20160812005801_kKHTy.jpeg";
+//    @"http://img3.duitang.com/uploads/item/201407/24/20140724142257_vTrmv.jpeg"
 }
 
 #pragma mark ——— tableView
@@ -65,7 +74,9 @@
     if(indexPath.row == 0)
     {
         AboutMeCell *cell = [[AboutMeCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"1" data:self.model];
+        
         cell.userInteractionEnabled = NO;
+        
         return cell;
     }
     else
